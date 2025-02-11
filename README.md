@@ -2,9 +2,41 @@
 
 ## Overview
 
-The **BIP-44 Ethereum Address Collision Finder** is a Python script that generates Ethereum addresses from randomly created mnemonic phrases (using the BIP-39 standard) and compares these generated addresses with a list of known Ethereum addresses (provided as input). The main goal of this project is to detect collisions, where a generated Ethereum address matches one from a provided list. The script follows the **BIP-32** and **BIP-44** standards for key derivation, making it a suitable tool for working with hierarchical deterministic wallets (HD Wallets).
+The **BIP-44 Ethereum Address Collision Finder** is a Python script designed to generate Ethereum addresses from randomly generated mnemonic phrases (following the BIP-39 standard). It then compares these generated addresses against a given list of known Ethereum addresses (provided by the user) to detect any collisions. The project is based on **BIP-32** and **BIP-44** standards for key derivation, making it a suitable tool for working with **hierarchical deterministic (HD) wallets**—a common feature in popular wallets such as **Trust Wallet**, **BlueWallet**, and others.
 
-This script uses multiprocessing to efficiently generate and check Ethereum addresses across multiple CPU cores, significantly speeding up the process when dealing with large datasets.
+### What is BIP-44?
+
+**BIP-44** (Bitcoin Improvement Proposal 44) is a standard used for **HD wallets**, which allows for the generation of multiple cryptocurrency addresses from a single master seed phrase. This standard is used by many well-known wallets (e.g., **Trust Wallet**, **BlueWallet**, **Exodus**, and others) to derive addresses for different cryptocurrencies in a structured way.
+
+The BIP-44 standard specifies a specific derivation path:  
+`m / purpose' / coin_type' / account' / change' / index`  
+For Ethereum, the **coin_type** is 60, as defined by BIP-44. This path ensures that a wallet can derive Ethereum addresses (and other coins) from the same mnemonic phrase using a unique and consistent method. By following BIP-44, wallets can generate a sequence of addresses deterministically, meaning they can regenerate all past addresses and private keys from a single seed.
+
+---
+
+## Why Ethereum?
+
+Ethereum is a blockchain platform that, like Bitcoin, uses public-private key pairs for transaction signing and address generation. However, unlike Bitcoin—which supports multiple address types like P2PKH, P2SH, and SegWit addresses—Ethereum has a simpler model. Each Ethereum address is derived from the public key using **Keccak-256** hashing, and **each Ethereum private key** corresponds to a single unique address. 
+
+### Key Differences Between Ethereum and Bitcoin in Terms of Address Derivation:
+
+- **Bitcoin** supports multiple address formats:
+  - **P2PKH (Pay-to-PubKey-Hash)**: Traditional Bitcoin addresses starting with `1`.
+  - **P2SH (Pay-to-Script-Hash)**: Segregated Witness (SegWit) addresses starting with `3`.
+  - **Bech32**: A newer SegWit address format that starts with `bc1`.
+
+- **Ethereum**, on the other hand, has a single address format:
+  - **Standard Ethereum Address**: Derived directly from the public key, and the address is the last 20 bytes of the **Keccak-256** hash of the public key, prefixed with `0x`.
+
+Because of Ethereum's simpler structure, it only generates **one address per private key**. This is in contrast to Bitcoin's multiple address types derived from the same private key, making Ethereum address generation relatively straightforward and predictable. 
+
+Thus, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) to derive addresses in a standardized manner, allowing for the efficient comparison of generated addresses against a set of known Ethereum addresses.
+
+### Why Ethereum for This Project?
+
+While Ethereum's address generation is simpler compared to Bitcoin (due to the absence of multiple address types), its widespread use and the need for collision detection in large datasets still make it a valuable target for this project. Additionally, **Ethereum's deterministic address derivation** ensures that each mnemonic phrase always generates the same set of addresses, making it easier to identify potential address collisions when comparing with an existing list of known addresses.
+
+---
 
 ## Key Features
 
