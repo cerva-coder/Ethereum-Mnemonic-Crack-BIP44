@@ -1,0 +1,4 @@
+mnemonic
+bip32utils
+ecdsa
+eth-hash
