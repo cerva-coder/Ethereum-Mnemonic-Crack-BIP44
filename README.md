@@ -82,11 +82,17 @@ While Ethereum's address generation is simpler compared to Bitcoin (due to the a
 
 - The script will periodically output the number of generated addresses and any collisions found in the console.
 - Collisions will be saved in a `collisions.txt` file.
+- The script is configured to display the count every 1,000 addresses checked, although this value can be adjusted directly in the code. During this process, it also provides information about the last key checked, including its mnemonic phrase and public key, to the terminal. This information is presented for validation purposes only. You can confirm the accuracy of the data by using an appropriate online converter.
 
 ## Multithreading
 
-This script utilizes multiprocessing to split the task of generating and checking Ethereum addresses across multiple CPU cores, speeding up the process considerably on systems with multiple cores.
+- This script utilizes multiprocessing to split the task of generating and checking Ethereum addresses across multiple CPU cores, speeding up the process considerably on systems with multiple cores.
+- Because of multiprocessing, the script displays the count of each core separately, since the task is executed by each core, anyway, the total count is displayed, being the sum of all cores.
 
+  ## List of addresses for collision
+
+The repository provides a list of 10k richest Ethereum addresses. However, you can provide your own list. In internal testing, I worked with 13 million target addresses, which cost approximately 9 GB of total RAM, while the file was only 2 GB, but when loading into RAM it becomes heavier.
+- 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
