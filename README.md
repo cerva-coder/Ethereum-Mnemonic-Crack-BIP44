@@ -73,7 +73,7 @@ While Ethereum's address generation is simpler compared to Bitcoin (due to the a
 2. Run the script:
 
     ```
-    python script_name.py
+    python eth_mnm_finder.py
     ```
 
 3. The script will generate random mnemonic phrases, derive Ethereum addresses from them, and check them against the addresses in `addr.txt`. If a match is found, the script will log the collision in `collisions.txt` and print the details in the console.
