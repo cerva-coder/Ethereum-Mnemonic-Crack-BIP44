@@ -1,4 +1,4 @@
-# BIP-44 Ethereum Address Collision Finder
+# BIP-44 Ethereum Mnemonic Crack
 
 ## Overview
 
