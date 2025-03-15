@@ -2,3 +2,5 @@ mnemonic
 bip32utils
 ecdsa
 eth-hash
+pysha3
+pycryptodome
