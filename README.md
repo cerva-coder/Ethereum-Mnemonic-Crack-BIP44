@@ -50,22 +50,25 @@ While Ethereum's address generation is simpler compared to Bitcoin (due to the a
 ## Installation
 
 1. Clone the repository or download the script.
-2. Install the required dependencies by creating a `requirements.txt`:
+2. Microsoft Visual C++ 14.0 or greater is required.  https://visualstudio.microsoft.com/visual-cpp-build-tools/
+3. Install the required dependencies by creating a `requirements.txt`:
 
     ```
     mnemonic
     bip32utils
     ecdsa
     eth-hash
+    pysha3
+    pycryptodome
     ```
 
-3. Install dependencies using pip:
+4. Install dependencies using pip:
 
     ```
     pip install -r requirements.txt
     ```
 
-4. Prepare a text file (e.g., `addr.txt`) containing the list of Ethereum addresses to compare against.
+5. Prepare a text file (e.g., `addr.txt`) containing the list of Ethereum addresses to compare against.
 
 ## Usage
 
