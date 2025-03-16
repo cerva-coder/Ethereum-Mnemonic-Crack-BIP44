@@ -65,6 +65,8 @@ While Ethereum's address generation is simpler compared to Bitcoin (due to the a
     ```
     pip install -r requirements.txt
     ```
+4. If you get an error installing the libraries in Python, install Microsoft Visual C++ 14.0 or greater "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
+Select both check boxes for Desktop Development with C++ and .NET Desktop Build Tools during installation.
 
 5. Prepare a text file (e.g., `addr.txt`) containing the list of Ethereum addresses to compare against.
 
