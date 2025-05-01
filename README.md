@@ -94,6 +94,12 @@ Select both check boxes for Desktop Development with C++ and .NET Desktop Build 
 
 ## List of addresses for collision
 -The repository provides a list of 10k richest Ethereum addresses. However, you can provide your own list. In internal testing, I worked with 13 million target addresses, which cost approximately 9 GB of total RAM, while the file was only 2 GB, but when loading into RAM it becomes heavier. 
+
+## Donation
+If you find the program useful and want to support its development, please donate to the following Ethereum address:
+Ethereum address: 0x5CD8E5F5E2750B1bBA9ac41970019a3DB8052Fa5
+Your donations help keep the project active and contribute to its maintenance and continuous improvements. We appreciate your support!
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
