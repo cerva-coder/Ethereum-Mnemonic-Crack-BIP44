@@ -19,6 +19,8 @@ Single Derivation Path Advantage: Ethereum uses a single public address derivati
 
 Probabilistic Advantage (Entropy): By searching within the range of BIP-39 mnemonic seed phrases, each attempt of this script is significantly more valuable compared to scripts that generate completely random hexadecimal keys. In mathematical terms, each attempt is quadrillions of times (approximately 21,242,124 times) more likely to match a commonly used wallet compared to fully random key generation methods. This substantial advantage is due purely to the mathematics of entropy and mnemonic-based derivations.
 
+While each seed phrase allows for the derivation of a theoretically infinite number of addresses, in practice the most commonly used address by users is the first derived address (index 0) in the standard BIP-44 path (m/44'/60'/0'/0/0). This is due to the convention adopted by popular wallets such as Trust Wallet, MetaMask, and BlueWallet, which by default display and use the derivation seed address for everyday transactions.
+
 ## Why Ethereum?
 
 Ethereum is a blockchain platform that, like Bitcoin, uses public-private key pairs for transaction signing and address generation. However, unlike Bitcoin—which supports multiple address types like P2PKH, P2SH, and SegWit addresses—Ethereum has a simpler model. Each Ethereum address is derived from the public key using **Keccak-256** hashing, and **each Ethereum private key** corresponds to a single unique address. 
