@@ -11,6 +11,7 @@ The **BIP-44 Ethereum Address Collision Finder** is a Python script designed to 
 The BIP-44 standard specifies a specific derivation path:  
 `m / purpose' / coin_type' / account' / change' / index`  
 For Ethereum, the **coin_type** is 60, as defined by BIP-44. This path ensures that a wallet can derive Ethereum addresses (and other coins) from the same mnemonic phrase using a unique and consistent method. By following BIP-44, wallets can generate a sequence of addresses deterministically, meaning they can regenerate all past addresses and private keys from a single seed.
+This, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) to derive addresses in a standardized manner, allowing for the efficient comparison of generated addresses against a set of known Ethereum addresses.
 
 ---
 ## Advantages
@@ -26,7 +27,6 @@ While each seed phrase allows for the derivation of a theoretically infinite num
 
 While Ethereum's address generation is simpler compared to Bitcoin (due to the absence of multiple address types), its widespread use and the need for collision detection in large datasets still make it a valuable target for this project. Additionally, **Ethereum's deterministic address derivation** ensures that each mnemonic phrase always generates the same set of addresses, making it easier to identify potential address collisions when comparing with an existing list of known addresses.
 
-This, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) to derive addresses in a standardized manner, allowing for the efficient comparison of generated addresses against a set of known Ethereum addresses.
 
 ---
 
