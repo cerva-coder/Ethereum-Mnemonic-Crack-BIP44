@@ -21,27 +21,12 @@ Probabilistic Advantage (Entropy): By searching within the range of BIP-39 mnemo
 
 While each seed phrase allows for the derivation of a theoretically infinite number of addresses, in practice the most commonly used address by users is the first derived address (index 0) in the standard BIP-44 path (m/44'/60'/0'/0/0). This is due to the convention adopted by popular wallets such as Trust Wallet, MetaMask, and BlueWallet, which by default display and use the derivation seed address for everyday transactions.
 
-## Why Ethereum?
 
-Ethereum is a blockchain platform that, like Bitcoin, uses public-private key pairs for transaction signing and address generation. However, unlike Bitcoin—which supports multiple address types like P2PKH, P2SH, and SegWit addresses—Ethereum has a simpler model. Each Ethereum address is derived from the public key using **Keccak-256** hashing, and **each Ethereum private key** corresponds to a single unique address. 
-
-### Key Differences Between Ethereum and Bitcoin in Terms of Address Derivation:
-
-- **Bitcoin** supports multiple address formats:
-  - **P2PKH (Pay-to-PubKey-Hash)**: Traditional Bitcoin addresses starting with `1`.
-  - **P2SH (Pay-to-Script-Hash)**: Segregated Witness (SegWit) addresses starting with `3`.
-  - **Bech32**: A newer SegWit address format that starts with `bc1`.
-
-- **Ethereum**, on the other hand, has a single address format:
-  - **Standard Ethereum Address**: Derived directly from the public key, and the address is the last 20 bytes of the **Keccak-256** hash of the public key, prefixed with `0x`.
-
-Because of Ethereum's simpler structure, it only generates **one address per private key**. This is in contrast to Bitcoin's multiple address types derived from the same private key, making Ethereum address generation relatively straightforward and predictable. 
-
-Thus, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) to derive addresses in a standardized manner, allowing for the efficient comparison of generated addresses against a set of known Ethereum addresses.
-
-### Why Ethereum for This Project?
+## Why Ethereum for This Project?
 
 While Ethereum's address generation is simpler compared to Bitcoin (due to the absence of multiple address types), its widespread use and the need for collision detection in large datasets still make it a valuable target for this project. Additionally, **Ethereum's deterministic address derivation** ensures that each mnemonic phrase always generates the same set of addresses, making it easier to identify potential address collisions when comparing with an existing list of known addresses.
+
+This, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) to derive addresses in a standardized manner, allowing for the efficient comparison of generated addresses against a set of known Ethereum addresses.
 
 ---
 
