@@ -85,8 +85,6 @@ Select both check boxes for Desktop Development with C++ and .NET Desktop Build 
 - This script utilizes multiprocessing to split the task of generating and checking Ethereum addresses across multiple CPU cores, speeding up the process considerably on systems with multiple cores.
 - Because of multiprocessing, the script displays the count of each core separately, since the task is executed by each core, anyway, the total count is displayed, being the sum of all cores.
 
-## List of addresses for collision
--The repository provides a list of 10k richest Ethereum addresses. However, you can provide your own list. In internal testing, I worked with 13 million target addresses, which cost approximately 9 GB of total RAM, while the file was only 2 GB, but when loading into RAM it becomes heavier. 
 
 ## Donation
 If you find the program useful and want to support its development, please donate to the following Ethereum address:
