@@ -17,9 +17,9 @@ This, the script uses the **BIP-44 path for Ethereum** (`m/44'/60'/0'/0/index`) 
 ---
 ## Advantages
 
-Single Derivation Path Advantage: Ethereum uses a single public address derivation format. Each private key corresponds directly to one unique Ethereum address. Unlike Bitcoin, which supports multiple address types (P2PKH, P2SH, Bech32), Ethereum's simple and direct derivation method significantly increases the script's effectiveness by reducing complexity and enhancing speed.
-
 Probabilistic Advantage (Entropy): By searching within the range of BIP-39 mnemonic seed phrases, each attempt of this script is significantly more valuable compared to scripts that generate completely random hexadecimal keys. In mathematical terms, each attempt is quadrillions of times (approximately 21,242,124 times) more likely to match a commonly used wallet compared to fully random key generation methods. This substantial advantage is due purely to the mathematics of entropy and mnemonic-based derivations.
+
+Single Derivation Path Advantage: Ethereum uses a single public address derivation format. Each private key corresponds directly to one unique Ethereum address. Unlike Bitcoin, which supports multiple address types (P2PKH, P2SH, Bech32), Ethereum's simple and direct derivation method significantly increases the script's effectiveness by reducing complexity and enhancing speed.
 
 While each seed phrase allows for the derivation of a theoretically infinite number of addresses, in practice the most commonly used address by users is the first derived address (index 0) in the standard BIP-44 path (m/44'/60'/0'/0/0). This is due to the convention adopted by popular wallets such as Trust Wallet, MetaMask, and BlueWallet, which by default display and use the derivation seed address for everyday transactions.
 
@@ -39,7 +39,8 @@ While Ethereum's address generation is simpler compared to Bitcoin (due to the a
 - **Ethereum Address Generation**: Public keys are hashed using Keccak-256 to generate Ethereum addresses.
 - **Collision Detection**: The generated Ethereum addresses are compared to a provided list of known addresses, and collisions are logged if found.
 - **Multiprocessing**: The script uses multiprocessing to run in parallel across multiple CPU cores, making it efficient for large-scale address generation.
-
+- **High-performance Bloom Filter for Ethereum Address Matching**: Uses a dynamically computed Bloom filter based on the number of addresses and desired false positive rate (default: 1e-6), allowing membership tests with O(1) complexity. Each address is converted into multiple SHA-256 hashes to define specific bits in a compact array, drastically reducing memory usage and avoiding disk reads during scanning. Ideal for massive seed/mnemonic scanning with millions of addresses, while maintaining high efficiency and scalability.
+  
 ## Installation
 
 1. Clone the repository or download the script.
