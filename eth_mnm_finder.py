@@ -11,7 +11,7 @@ from bip32utils import BIP32Key
 from ecdsa import SigningKey, SECP256k1
 from eth_hash.auto import keccak
 
-# ===== Bloom Filter utilities =====
+# ===== Bloom Filter utilities ====
 
 def build_bloom(eth5_file, bloom_bin_path, meta_path, false_positive_rate=1e-6):
     """
