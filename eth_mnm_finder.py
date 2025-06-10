@@ -261,7 +261,7 @@ class AppState:
     def get_latest_keys_panel(self) -> Panel:
         """Creates the panel to show the latest generated keys."""
         key_text = "\n".join(self.latest_keys)
-        return Panel(key_text, title="[bold]Latest Generated Keys[/bold]", border_style="white")
+        return Panel(key_text, title="[bold]Latest Generated Keys in block[/bold]", border_style="white")
 
     def add_found_key(self, worker_id, address, mnemonic):
         self.found_keys_table.add_row(f"#{worker_id}", address, mnemonic)
