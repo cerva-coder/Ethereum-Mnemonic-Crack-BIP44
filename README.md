@@ -45,6 +45,8 @@ Single Derivation Path Advantage: Ethereum uses a single public address derivati
     ecdsa
     eth-hash
     pycryptodome
+    colorama
+    rich
     ```
 
 3. Install dependencies using pip:

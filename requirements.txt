@@ -3,3 +3,5 @@ bip32utils
 ecdsa
 eth-hash
 pycryptodome
+colorama
+rich
